@@ -73,9 +73,13 @@ functions/
 |-- psilodep2.m
 ```
 
+## This code is no longer supported
+After leaving academia, I no longer have access to Matlab licenses! 
 
-
-
+### Get in touch if you:
+- find a bug 
+- would like to translate this repo into an open source language
+- want help with applying this sort of analysis to your data.
 
 
 
