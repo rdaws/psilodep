@@ -15,9 +15,9 @@ BLUF: The evidence from two independent studies suggests that psilocybin therapy
 2. Compare the Q of patients with depression before and after psilocybin therapy.
 3. Compare individual changes in Q to changes in depression severity. 
 
-
-## Usage
+#
 Add `third_party` to the Matlab path for the code in `functions` to run.
+#
 
 ## 1. Modularity estimation
 Timecourses are extracted from a set of regions to measure functional connectivity as estimate normalized brain network modularity. eg:
@@ -66,12 +66,13 @@ To recreate the brain imaging figures that visualises reductions in modularity (
 <img src="figures/psilodep2_Q_figure.jpg" width="350" />
 
 ### Stats
-The additional stats are calculated in:
+The additional stats reported in the paper are calculated in:
 ```
 functions/
 |-- psilodep1.m
 |-- psilodep2.m
 ```
+<br>
 
 ## This code is no longer supported
 After leaving academia, I no longer have access to Matlab licenses! 
