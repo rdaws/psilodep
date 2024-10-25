@@ -7,33 +7,40 @@ https://www.nature.com/articles/s41591-022-01744-z
 BLUF: The evidence from two independent studies suggests that psilocybin therapy can alleviate depression via an increase in the brain's functional network integration.
 <br>
 
-![Project Logo](figures/psilo_energy_schematic-01.jpg)
+![Energy landscape](figures/psilo_energy_schematic-01.jpg)
 
+## Aims and usage
+
+1. To extract measures of brain network modularity (Q) from preprocessed resting-state fMRI. 
+2. Compare the Q of patients with depression before and after psilocybin therapy.
+3. Compare individual changes in Q to changes in depression severity. 
 
 
 ## Usage
+Add `third_party` to the Matlab path for the code in `functions` to run.
 
-Matlab codes in `functions` rely on a combination of custom and 3rd-party toolboxes. These are held in `third_party` and need to be in the Matlab path for the code to run. 
-
-
-The modularity estimation was heavily inspired by Karolina Finc's Nature Communications paper on working memory: https://www.nature.com/articles/s41467-020-15631-z
-
-The below calls a function that returns a normalised moadularity value (Q) estimated by the maximum true modularity value divided by the mean of a a distribution of shuffled functional connectivity matrices. 
+## 1. Modularity estimation
+Timecourses are extracted from a set of regions to measure functional connectivity as estimate normalized brain network modularity. eg:
 
 ```
-
-% Imaging and atlas volume need to be in the same space (e.g., MNI)
+% define imaging matrix
 imaging_volume = 4D_brain_imaging_brain
+
+% define atlas matrix
 atlas_volume = 3D_regional_brain_atlas
 
+% Estimate norm. modulatrity
 Q_norm = calculate_static_modularity(imaging_volume, atlas_volume)
-
 ```
+NB:- Imaging and atlas data need to be in the same space (e.g., MNI)
 
-## Data
 
-Summary metrics of Beck's Depression Inventory (BDI) and Brain network modularity (Q) and held in `.mat` files:
+The modularity estimation was heavily inspired by Karolina Finc's Nature Communications paper on working memory: https://www.nature.com/articles/s41467-020-15631-z. To normalize Q, the maximum true Q is divided by the mean of a distribution of shuffled functional connectivity matrices. 
 
+
+
+## 2. Stats & plotting
+The extracted Q and Beck Depression Inventory (BDI) measures are in `.mat` files here:
 ```
 data/
 |-- psilodep1/
@@ -43,46 +50,29 @@ data/
 |   |-- dat_2.mat
 ```
 
+### BDI 
+To recreate the BDI figure that visualizes the reductions in depression severity following psilocybin therapy, run:
+```
+>>> BDI_figure
+```
+<img src="figures/BDI_figure.jpg" width="350" />
 
+### Imaging figure
+To recreate the brain imaging figures that visualises reductions in modularity (Q) following psilocybin therapy, run:
+```
+>>> Imaging_figure
+```
+<img src="figures/psilodep1_Q_figure.jpg" width="350" />
+<img src="figures/psilodep2_Q_figure.jpg" width="350" />
 
-## Figures
-1. [BDI](#BDI)
-1. [Imaging](#Imaging)
- 
+### Stats
+The additional stats are calculated in:
+```
+functions/
+|-- psilodep1.m
+|-- psilodep2.m
+```
 
-
-
-
-
-
-
-
-
-### Features:
-- Feature 1
-- Feature 2
-- Feature 3
-
-
-# BDI
-Reductions in Beck's depression inventory (BDI) following psilocybin in study 1 (top row) are replicated in study 2 (bottom row), where improvements are significantly greater than those seen with escitalopram.
-Run: ```>>> BDI_figure ```
-<br>
-
-![Project Logo](figures/BDI_figure.jpg)
-
-# Imaging
-Study 1, decreases in brain network modularity correlate with improvements in Beck's depression inventory (BDI) following psilocybin therapy.
-Run: ```>>> Imaging_figure ```
-<br>
-
-![Project Logo](figures/psilodep1_Q_figure.jpg)
-
-Study 2, replicated decreases in modularity following psilocybin, but not following escitalopram treatment. Replicated correlation between reduction in modularity and BDI improvement (statistically significant with one-tailed test). This correlation between brain changes and BDI was not observed in the escitalopram group. 
-Run: ```>>> Imaging_figure ```
-<br>
-
-![Project Logo](figures/psilodep2_Q_figure.jpg)
 
 
 
