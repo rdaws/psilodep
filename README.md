@@ -1,5 +1,9 @@
 # Changes in the brain after psilocybin therapy for depression
 
+![Energy landscape](figures/58733B3A-BDEC-457F-9D31-098B591D5874.png)
+
+<br>
+
 This repo contains code for the statistical analysis and figure generation associated with the results described in: 
 https://www.nature.com/articles/s41591-022-01744-z
 <br>
