@@ -51,7 +51,7 @@ end
     % Find number of ROIs
     nRoi=numel(unique(atlas_volume(atlas_volume>0)));
     % Reshape atlas to 2D
-    atlas_volume=reshape(convert.label2Dummy(atlas_volume)>0, [],  nRoi); 
+    atlas_volume=reshape(label2Dummy(atlas_volume)>0, [],  nRoi); 
 
 %% 2 Wrangle imaging_data
 
